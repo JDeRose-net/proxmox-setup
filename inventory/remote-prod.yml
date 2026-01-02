@@ -1,11 +1,9 @@
 ---
+# Usage: ansible-playbook -i inventory/remote-prod.yml playbooks/site.yml -e ansible_host=<IP>
 all:
   children:
     proxmox:
       children:
         prod:
           hosts:
-            pve-prod-01:
-              ansible_host: 192.168.1.10  # Update with actual IP
-            # pve-prod-02:
-            #   ansible_host: 192.168.1.11
+            target:
