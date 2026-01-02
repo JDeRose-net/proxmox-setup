@@ -7,6 +7,9 @@ env_name: dev
 ssh_permit_root_login: "yes"
 ssh_password_authentication: "yes"
 
+# Passwordless sudo
+sudo_nopasswd: true
+
 # Dev-specific packages
 extra_packages:
   - net-tools

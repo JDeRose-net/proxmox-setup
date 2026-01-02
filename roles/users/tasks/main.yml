@@ -23,3 +23,11 @@
     state: present
   loop: "{{ ssh_authorized_keys | default([]) }}"
   when: ssh_authorized_keys is defined and ssh_authorized_keys | length > 0
+
+- name: Configure passwordless sudo for local user
+  ansible.builtin.copy:
+    dest: "/etc/sudoers.d/{{ local_user }}"
+    content: "{{ local_user }} ALL=(ALL) NOPASSWD:ALL\n"
+    mode: "0440"
+    validate: "visudo -cf %s"
+  when: sudo_nopasswd | default(false)

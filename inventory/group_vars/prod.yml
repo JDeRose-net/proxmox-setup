@@ -12,3 +12,4 @@ extra_packages: []
 
 # Security settings
 fail2ban_enabled: true
+sudo_nopasswd: false
