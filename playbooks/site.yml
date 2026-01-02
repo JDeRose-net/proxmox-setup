@@ -1,20 +1,7 @@
 ---
-- name: Configure Proxmox PVE hosts
-  hosts: proxmox
-  gather_facts: true
+# Full setup: PVE configuration + user creation
+- name: Configure Proxmox PVE host
+  ansible.builtin.import_playbook: pve-setup.yml
 
-  pre_tasks:
-    - name: Display target environment
-      ansible.builtin.debug:
-        msg: "Configuring {{ inventory_hostname }} for {{ env_name | default('unknown') }} environment"
-
-  roles:
-    - base
-    - users
-    - security
-    - proxmox
-
-  post_tasks:
-    - name: Configuration complete
-      ansible.builtin.debug:
-        msg: "Proxmox host {{ inventory_hostname }} configuration complete"
+- name: Configure local user
+  ansible.builtin.import_playbook: user.yml

@@ -1,0 +1,19 @@
+---
+- name: Configure Proxmox PVE host
+  hosts: proxmox
+  gather_facts: true
+
+  pre_tasks:
+    - name: Display target environment
+      ansible.builtin.debug:
+        msg: "Configuring {{ inventory_hostname }} for {{ env_name | default('unknown') }} environment"
+
+  roles:
+    - base
+    - security
+    - proxmox
+
+  post_tasks:
+    - name: PVE setup complete
+      ansible.builtin.debug:
+        msg: "Proxmox PVE host {{ inventory_hostname }} configuration complete"

@@ -1,0 +1,12 @@
+---
+- name: Configure local user
+  hosts: proxmox
+  gather_facts: true
+
+  roles:
+    - users
+
+  post_tasks:
+    - name: User setup complete
+      ansible.builtin.debug:
+        msg: "User {{ local_user }} configured on {{ inventory_hostname }}"
