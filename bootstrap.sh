@@ -76,7 +76,7 @@ echo "==> Updating package lists"
 apt update
 
 echo "==> Installing Ansible and prerequisites"
-apt install -y ansible git python3-pip
+apt install -y ansible git python3-pip sudo
 
 echo ""
 echo "==> Bootstrap complete!"
