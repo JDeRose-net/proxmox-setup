@@ -20,8 +20,26 @@ As root:
 
 ```bash
 cd /opt/proxmox-pve
-ansible-playbook -i inventory/local.yml playbooks/site.yml
+ansible-playbook -i inventory/local.yml playbooks/site.yml -e local_user=sysadm
 passwd sysadm
+```
+
+## Playbooks
+
+| Playbook | Description |
+|----------|-------------|
+| `site.yml` | Full setup (imports pve-setup + user) |
+| `pve-setup.yml` | Core PVE config (packages, SSH, subscription nag) |
+| `user.yml` | User management only (create user, sudo, SSH keys) |
+
+Run individually:
+
+```bash
+# Just PVE config (no user)
+ansible-playbook -i inventory/local.yml playbooks/pve-setup.yml
+
+# Just user setup
+ansible-playbook -i inventory/local.yml playbooks/user.yml -e local_user=sysadm
 ```
 
 ## Inventory Options
@@ -44,11 +62,19 @@ passwd sysadm
 ## Structure
 
 ```
+playbooks/
+├── site.yml       # Full setup
+├── pve-setup.yml  # Core PVE config
+└── user.yml       # User management
 inventory/
-├── group_vars/  # Environment-specific variables
-├── local.yml    # Run on this host
+├── group_vars/    # Environment-specific variables
+├── local.yml
 ├── local-dev.yml
 ├── remote-dev.yml
 └── remote-prod.yml
-roles/           # base, users, security, proxmox
+roles/
+├── base           # Packages, timezone
+├── users          # User creation, sudo, SSH keys
+├── security       # SSH hardening, fail2ban
+└── proxmox        # PVE-specific (subscription nag)
 ```
