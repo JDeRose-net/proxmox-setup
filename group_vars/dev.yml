@@ -1,0 +1,14 @@
+---
+# Development environment overrides
+
+env_name: dev
+
+# More permissive SSH for dev
+ssh_permit_root_login: "yes"
+ssh_password_authentication: "yes"
+
+# Dev-specific packages
+extra_packages:
+  - net-tools
+  - strace
+  - tcpdump

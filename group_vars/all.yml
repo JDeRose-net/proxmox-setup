@@ -1,0 +1,29 @@
+---
+# Common variables for all environments
+
+# User configuration
+local_user: homestak
+local_user_shell: /bin/bash
+
+# Timezone
+timezone: UTC
+
+# Common packages to install
+common_packages:
+  - htop
+  - curl
+  - wget
+  - git
+  - vim
+  - tmux
+  - tree
+  - jq
+  - rsync
+
+# SSH configuration
+ssh_port: 22
+ssh_permit_root_login: "prohibit-password"
+ssh_password_authentication: "no"
+
+# Proxmox settings
+pve_remove_subscription_nag: true

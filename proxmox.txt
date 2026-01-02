@@ -1,0 +1,28 @@
+#
+# Proxmox setup
+#
+
+# update repos
+# https://pve.proxmox.com/wiki/Package_Repositories
+
+cd /etc/apt/sources.list.d/
+mv pve-enterprise.sources ~
+mv ceph.sources ~
+
+apt update
+apt list --upgradable 
+apt upgrade -y
+reboot now
+
+   62  proxmox-boot-tool refresh
+   74  apt install htop -y
+   75  nice htop
+   76  pve-efiboot-tool 
+   77  pve-efiboot-tool status
+   79  pve-efiboot-tool kernel list
+   83  findmnt /
+   84  apt autoremove
+   85  echo 'bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/kernel-clean.sh)"'
+   87  wget https://github.com/tteck/Proxmox/raw/main/misc/kernel-clean.sh
+   89  . ./kernel-clean.sh 
+
