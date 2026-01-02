@@ -1,27 +1,27 @@
 #!/bin/bash
 #
-# Proxmox PVE Post-Install Setup
+# Proxmox Post-Install Setup
 #
 # Usage:
-#   curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-pve/master/install.sh | bash
+#   curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-setup/master/install.sh | bash
 #
 # Custom username:
-#   curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-pve/master/install.sh | NEWUSER=myuser bash
+#   curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-setup/master/install.sh | NEWUSER=myuser bash
 #
 set -euo pipefail
 
-REPO_URL="https://github.com/JDeRose-net/proxmox-pve.git"
-INSTALL_DIR="/opt/proxmox-pve"
+REPO_URL="https://github.com/JDeRose-net/proxmox-setup.git"
+INSTALL_DIR="/opt/proxmox-setup"
 NEWUSER="${NEWUSER:-sysadm}"
 
 # Must run as root
 if [[ $EUID -ne 0 ]]; then
     echo "Error: This script must be run as root"
-    echo "Usage: curl -sSL https://raw.githubusercontent.com/john-derose/proxmox-pve/master/install.sh | sudo bash"
+    echo "Usage: curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-setup/master/install.sh | sudo bash"
     exit 1
 fi
 
-echo "==> Proxmox PVE Post-Install Setup"
+echo "==> Proxmox Post-Install Setup"
 echo "==> Target user: $NEWUSER"
 
 # Disable enterprise repos (they block apt update without subscription)

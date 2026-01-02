@@ -1,17 +1,17 @@
-# Proxmox PVE Post-Install Setup
+# Proxmox Post-Install Setup
 
-Ansible playbooks for configuring fresh Proxmox VE installations.
+Ansible playbooks for configuring fresh Proxmox installations (PVE, PBS, PMG).
 
 ## Quick Install
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-pve/master/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-setup/master/install.sh | bash
 ```
 
 Custom username (default: `sysadm`):
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-pve/master/install.sh | NEWUSER=myuser bash
+curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-setup/master/install.sh | NEWUSER=myuser bash
 ```
 
 ## After Install
@@ -19,7 +19,7 @@ curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-pve/master/insta
 As root:
 
 ```bash
-cd /opt/proxmox-pve
+cd /opt/proxmox-setup
 ansible-playbook -i inventory/local.yml playbooks/site.yml -e local_user=sysadm
 passwd sysadm
 ```

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Proxmox PVE Bootstrap Script
+# Proxmox Bootstrap Script
 # Prepares a fresh Proxmox install for Ansible management
 #
 set -euo pipefail
@@ -33,7 +33,7 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-echo "==> Proxmox PVE Post-Install Setup"
+echo "==> Proxmox Post-Install Setup"
 echo "==> Target user: $USERNAME"
 
 # Disable enterprise repos
@@ -66,7 +66,7 @@ echo ""
 echo "==> Bootstrap complete!"
 echo ""
 echo "Next steps (as root):"
-echo "  cd /opt/proxmox-pve"
+echo "  cd /opt/proxmox-setup"
 echo "  ansible-playbook -i inventory/local.yml playbooks/site.yml -e local_user=$USERNAME"
 echo "  passwd $USERNAME"
 echo ""
