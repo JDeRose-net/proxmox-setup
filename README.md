@@ -16,11 +16,12 @@ curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-pve/master/insta
 
 ## After Install
 
-Log in as the new user and run:
+As root:
 
 ```bash
 cd /opt/proxmox-pve
-ansible-playbook -i inventory/local.yml playbooks/site.yml -e local_user=$USER
+ansible-playbook -i inventory/local.yml playbooks/site.yml
+passwd sysadm
 ```
 
 ## Inventory Options
