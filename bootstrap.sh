@@ -42,8 +42,6 @@ if id "$USERNAME" &>/dev/null; then
 else
     echo "==> Creating user '$USERNAME'"
     useradd -m -s /bin/bash "$USERNAME"
-    echo "==> Set password for '$USERNAME':"
-    passwd "$USERNAME"
 fi
 
 # Add user to sudo group
@@ -84,7 +82,8 @@ echo ""
 echo "==> Bootstrap complete!"
 echo ""
 echo "Next steps:"
-echo "  1. Log in as '$USERNAME'"
-echo "  2. cd /opt/proxmox-pve"
-echo "  3. Run: ansible-playbook -i inventory/local.yml playbooks/site.yml -e local_user=$USERNAME"
+echo "  1. Set password: passwd $USERNAME"
+echo "  2. Log in as '$USERNAME'"
+echo "  3. cd /opt/proxmox-pve"
+echo "  4. Run: ansible-playbook -i inventory/local.yml playbooks/site.yml -e local_user=$USERNAME"
 echo ""
