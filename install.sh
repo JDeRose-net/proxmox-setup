@@ -3,14 +3,14 @@
 # Proxmox PVE Post-Install Setup
 #
 # Usage:
-#   curl -sSL https://raw.githubusercontent.com/john-derose/proxmox-pve/master/install.sh | bash
+#   curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-pve/master/install.sh | bash
 #
 # Custom username:
-#   curl -sSL https://raw.githubusercontent.com/john-derose/proxmox-pve/master/install.sh | NEWUSER=myuser bash
+#   curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-pve/master/install.sh | NEWUSER=myuser bash
 #
 set -euo pipefail
 
-REPO_URL="https://github.com/john-derose/proxmox-pve.git"
+REPO_URL="https://github.com/JDeRose-net/proxmox-pve.git"
 INSTALL_DIR="/opt/proxmox-pve"
 NEWUSER="${NEWUSER:-sysadm}"
 

@@ -5,13 +5,13 @@ Ansible playbooks for configuring fresh Proxmox VE installations.
 ## Quick Install
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/john-derose/proxmox-pve/master/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-pve/master/install.sh | bash
 ```
 
 Custom username (default: `sysadm`):
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/john-derose/proxmox-pve/master/install.sh | NEWUSER=myuser bash
+curl -sSL https://raw.githubusercontent.com/JDeRose-net/proxmox-pve/master/install.sh | NEWUSER=myuser bash
 ```
 
 ## After Install
